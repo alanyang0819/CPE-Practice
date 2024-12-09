@@ -1,10 +1,23 @@
-"""
 def main():
-    M, N = map(int, input().split())
-    dict = {}
-    for i in range(M):
-        num = int(input())
-        dict[num] = num % N
+    N, M = map(int, input().split())
+    test, mod = N, M
+    while True:
+        res = {}
+        for _ in range(N):
+            num = int(input())
+            res[num] = num % M
 
-    for key in sorted(dict.items(), key=lambda x: (x[1], ))
-"""
+        N, M = map(int, input().split())
+        if N == 0 and M == 0:
+            break
+    print(test, mod)
+    for key, _ in sorted(
+        res.items(),
+        key=lambda x: (x[1], x[0] % 2 == 0, -x[0] if x[0] % 2 == 1 else x[0]),
+    ):
+        print(key)
+    print(f"{N} {M}")
+
+
+if __name__ == "__main__":
+    main()
