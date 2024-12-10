@@ -7,6 +7,7 @@ def main():
 
         X2 = int(N, 16)
         b2 = bin(X2).count("1")
+
         print(f"{b1} {b2}")
 
 

@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
   vector<int> num;
-  bool boring = false;
+  // bool boring = false;
   int num_one, num_two;
   cin >> num_one >> num_two;
   num.push_back(num_one);
@@ -14,7 +14,7 @@ int main() {
       num_one /= num_two;
     }
     else {
-      boring = true;
+      // boring = true;
       cout << "Boring!" << endl;
       return 0;
     }

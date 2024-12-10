@@ -1,18 +1,21 @@
 def main():
     for _ in range(int(input())):
-        family = []
-        numbers = list(map(int, input().split()))
-        for i in range(numbers[0]):
-            family.append(numbers[i + 1])
-        family.sort()
-        if len(family) % 2 == 1:
-            mid = family[(len(family) - 1) // 2]
-        else:
-            mid = family[(len(family) // 2) - 1] + family[len(family) // 2] // 2
+        families = []
+        nums = list(map(int, input().split()))
+        for i in range(1, len(nums)):
+            families.append(nums[i])
+
+        families.sort()
 
         sum = 0
-        for j in range(len(family)):
-            sum += abs(family[j] - mid)
+        if len(families) % 2 == 1:
+            mid = families[(len(families) - 1) // 2]
+
+        else:
+            mid = (families[len(families) // 2] + families[len(families) // 2 - 1]) // 2
+
+        for family in families:
+            sum += abs(family - mid)
 
         print(sum)
 

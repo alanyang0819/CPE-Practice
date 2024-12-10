@@ -1,15 +1,24 @@
 def main():
-    gap = []
-    numbers = list(map(int, input().split()))
-    for i in range(numbers[0]):
-        if i >= 1:
-            gap.append(abs(numbers[i + 1] - numbers[i]))
-    gap.sort()
-    for j in range(1, numbers[0]):
-        if gap[j - 1] != j:
-            print("Not jolly")
-            return 0
-    print("jolly")
+    while True:
+        try:
+            nums = list(map(int, input().split()))
+            gap = []
+            for i in range(1, nums[0]):
+                gap.append(abs(nums[i] - nums[i + 1]))
+
+            gap.sort()
+            jolly = True
+
+            for j in range(1, nums[0]):
+                if gap[j - 1] != j:
+                    jolly = False
+            if jolly:
+                print("Jolly")
+            else:
+                print("Not jolly")
+
+        except EOFError:
+            break
 
 
 if __name__ == "__main__":
